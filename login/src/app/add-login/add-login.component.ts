@@ -27,7 +27,7 @@ export class AddLoginComponent implements OnInit {
    emailerror:any
    messageerror:any
     submitForm(){
-      this.http.post<any>('http://127.0.0.1:5000/api//add',{
+      this.http.post<any>('http://127.0.0.1:5000/api/add',{
           "first_name":this.form.get("first_name")!.value,
           "last_name":this.form.get("last_name")!.value,
           "phone":this.form.get("phone")!.value,
@@ -36,6 +36,16 @@ export class AddLoginComponent implements OnInit {
       }).subscribe({
         next:data =>{
           this.successmessage ="Person Saved Successfully , Thank you"
+        },
+        error:errors =>{
+          //handle errors
+          this.firstnameerror = errors.error.first_name;
+          this.lastnameerror = errors.error.last_name;
+          this.emailerror = errors.error.email;
+          this.phoneerror = errors.error.phone;
+          this.messageerror = errors.error.message;
+         
+        
         }
       })
     }
@@ -44,3 +54,6 @@ export class AddLoginComponent implements OnInit {
   }
 
 }
+
+
+
