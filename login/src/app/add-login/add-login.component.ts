@@ -33,6 +33,10 @@ export class AddLoginComponent implements OnInit {
           "phone":this.form.get("phone")!.value,
           "email":this.form.get("email")!.value,
           "message":this.form.get("message")!.value
+      }).subscribe({
+        next:data =>{
+          this.successmessage ="Person Saved Successfully , Thank you"
+        }
       })
     }
 

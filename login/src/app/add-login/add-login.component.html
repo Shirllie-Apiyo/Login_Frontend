@@ -9,18 +9,33 @@
                 <div class="form-group">
                     <input type="text" formControlName="first_name" placeholder="First Name" class="form-control">
                 </div>
+                <div *ngIf = "firstnameerror" class="alert alert-danger">
+                    <span>Warning, {{firstnameerror | json}}</span>
+                </div>
                 <div class="form-group">
                     <input type="text" formControlName="last_name" placeholder="Last Name" class="form-control">
+                </div>
+                <div *ngIf = "lastnameerror" class="alert alert-danger">
+                    <span>Warning, {{lastnameerror | json}}</span>
                 </div>
                 <div class="form-group">
                     <input type="text" formControlName="phone" placeholder="Phone" class="form-control">
                 </div>
+                <div *ngIf = "phoneerror" class="alert alert-danger">
+                    <span>Warning, {{phoneerror | json}}</span>
+                </div>
                 <div class="form-group">
                     <input type="text" formControlName="email" placeholder="Email" class="form-control">
+                </div>
+                <div *ngIf = "emailerror" class="alert alert-danger">
+                    <span>Warning, {{emailerror | json}}</span>
                 </div>
 
                 <div class="form-group">
                     <textarea type="text" formControlName="message" placeholder="Message" class="form-control"></textarea>
+                </div>
+                <div *ngIf = "messageerror" class="alert alert-danger">
+                    <span>Warning, {{messageerror | json}}</span>
                 </div>
             </form>
         </div>
